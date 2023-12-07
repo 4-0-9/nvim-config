@@ -5,18 +5,22 @@ return require('packer').startup(function(use)
 
 	use 'nvim-lua/plenary.nvim'
 
+    use {
+        'christoomey/vim-tmux-navigator',
+        lazy = false
+    }
+
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.4',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
-	use({
-		'rose-pine/neovim',
-		as = 'rose-pine',
-		config = function()
-			vim.cmd('colorscheme rose-pine')
-		end
-	})
+    use {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
+    }
 
 	use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 

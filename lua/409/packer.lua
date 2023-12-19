@@ -11,15 +11,13 @@ return require('packer').startup(function(use)
     }
 
 	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.4',
+		'nvim-telescope/telescope.nvim',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
     use {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
-        opts = {},
+        "catppuccin/nvim",
+        as = "catppuccin"
     }
 
 	use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })

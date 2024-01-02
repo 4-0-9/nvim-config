@@ -10,6 +10,17 @@ require('mason-lspconfig').setup({
 	}
 })
 
+require('lspconfig').yamlls.setup {
+    settings = {
+        yaml = {
+            validate = false,
+            format = {
+                enable = true
+            }
+        }
+    }
+}
+
 local cmp = require('cmp')
 
 local cmp_select = {behavior = cmp.SelectBehavior.Select}

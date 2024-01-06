@@ -7,9 +7,11 @@ function Color(color)
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
     vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
     -- If Vim thinks StatusLine and StatusLineNC are the same it overrides these settings
-    vim.api.nvim_set_hl(0, "StatusLineNC", { ctermbg = "#ff0000", bg = "none" })
-    vim.api.nvim_set_hl(0, "EndOfBuffer", { fg = "none", bg = "none" })
+    vim.api.nvim_set_hl(0, "StatusLineNC", { ctermbg = 0, bg = "none" })
+    vim.api.nvim_set_hl(0, "CursorLine", { link = "Visual" })
+    vim.api.nvim_set_hl(0, "Pmenu", { link = "Normal" })
+    vim.api.nvim_set_hl(0, "PmenuSel", { link = "Visual" })
+    vim.api.nvim_set_hl(0, "PmenuSbar", { link = "Normal" })
 end
 
 Color()
--- #1E1E2E

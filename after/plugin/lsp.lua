@@ -53,15 +53,37 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 cmp_mappings['<Tab>'] = nil
 cmp_mappings['<S-Tab>'] = nil
 
+local lspkind = require('lspkind')
+
 cmp.setup({
     sources = {
         { name = 'path' },
         { name = 'nvim_lsp' },
+        { name = 'lsp-zero' },
         { name = 'nvim_lua' },
         { name = 'luasnip', keyword_length = 2 },
         { name = 'buffer',  keyword_length = 3 },
     },
-    formatting = lsp.cmp_format(),
+    view = {
+        entries = 'native',
+    },
+    completion = {
+        completeopt = 'menu,menuone,noinsert'
+    },
+    window = {
+        documentation = cmp.config.window.bordered()
+    },
+    formatting = {
+        format = lspkind.cmp_format({
+            mode = 'symbol_text',
+            menu = ({
+                buffer = '[Buffer]',
+                nvim_lsp = '[LSP]',
+                nvim_lua = '[Lua]',
+                luasnip = '[LuaSnip]'
+            })
+        })
+    },
     mapping = cmp.mapping.preset.insert({
         ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
         ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
@@ -71,8 +93,9 @@ cmp.setup({
         ['<S-Tab>'] = nil
     }),
 })
+
 lsp.set_preferences({
-    suggest_lsp_servers = false,
+    suggest_lsp_servers = true,
     sign_icons = {
         error = 'E',
         warn = 'W',

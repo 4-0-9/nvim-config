@@ -39,19 +39,20 @@ return require('packer').startup(function(use)
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
 
-    use {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v3.x',
-        requires = {
-            { 'williamboman/mason.nvim' },
-            { 'williamboman/mason-lspconfig.nvim' },
+    use('williamboman/mason.nvim')
 
-            -- LSP Support
-            { 'neovim/nvim-lspconfig' },
-            -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },
-            { 'hrsh7th/cmp-nvim-lsp' },
-            { 'L3MON4D3/LuaSnip' },
-        }
-    }
+
+    use('williamboman/mason-lspconfig.nvim')
+
+    -- LSP Support
+    use('neovim/nvim-lspconfig')
+    -- Autocompletion
+    use('hrsh7th/nvim-cmp')
+    use('hrsh7th/cmp-nvim-lsp')
+    use('hrsh7th/cmp-nvim-lsp-signature-help')
+    use('hrsh7th/cmp-nvim-lua')
+    use('hrsh7th/cmp-buffer')
+    use('hrsh7th/cmp-path')
+    use('hrsh7th/cmp-cmdline')
+    use('L3MON4D3/LuaSnip')
 end)

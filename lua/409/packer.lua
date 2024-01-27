@@ -55,4 +55,21 @@ return require('packer').startup(function(use)
     use('hrsh7th/cmp-path')
     use('hrsh7th/cmp-cmdline')
     use('L3MON4D3/LuaSnip')
+
+    use('nvim-tree/nvim-web-devicons')
+
+    use {
+        'danymat/neogen',
+        requires = { 'nvim-treesitter/nvim-treesitter' }
+    }
+
+    use {
+        'folke/todo-comments.nvim',
+        dependencies = { 'nvim-lua/plenary' }
+    }
+
+    use {
+        'folke/trouble.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' }
+    }
 end)

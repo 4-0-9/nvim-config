@@ -85,7 +85,7 @@ cmp.setup({
         entries = 'native',
     },
     completion = {
-        completeopt = 'menu,menuone,noinsert',
+        completeopt = 'menuone,noselect,preview',
         docs_initially_visible = true
     },
     window = {

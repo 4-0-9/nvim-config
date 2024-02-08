@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "/home/j409/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
+  ["conform.nvim"] = {
+    loaded = true,
+    path = "/home/j409/.local/share/nvim/site/pack/packer/start/conform.nvim",
+    url = "https://github.com/stevearc/conform.nvim"
+  },
   harpoon = {
     loaded = true,
     path = "/home/j409/.local/share/nvim/site/pack/packer/start/harpoon",

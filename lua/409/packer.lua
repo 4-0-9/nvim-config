@@ -72,4 +72,8 @@ return require('packer').startup(function(use)
         'folke/trouble.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' }
     }
+
+    use({
+        'stevearc/conform.nvim'
+    })
 end)

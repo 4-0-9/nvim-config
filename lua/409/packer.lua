@@ -92,7 +92,7 @@ return require("packer").startup(function(use)
 			require("Comment").setup()
 		end,
 	})
-
+	--[[
 	use({
 		"lukas-reineke/headlines.nvim",
 		after = "nvim-treesitter",
@@ -100,6 +100,7 @@ return require("packer").startup(function(use)
 			require("headlines").setup()
 		end,
 	})
+    ]]
 
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 

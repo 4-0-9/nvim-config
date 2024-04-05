@@ -6,6 +6,7 @@ conform.setup({
 		cs = { "csharpier" },
 		javascript = { { "prettierd", "prettier" } },
 		rust = { "rustfmt" },
+        dart = { "dart_format" }
 	},
 })
 
@@ -18,5 +19,7 @@ conform.formatters.rustfmt = {
 }
 
 vim.keymap.set("n", "<leader>f", function()
-	conform.format({ bufnr = vim.lsp.bufnr })
+	if not conform.format({ bufnr = vim.lsp.bufnr }) then
+		vim.lsp.buf.format()
+	end
 end)

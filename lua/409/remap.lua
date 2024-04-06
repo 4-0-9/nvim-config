@@ -34,10 +34,15 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 vim.keymap.set("n", "<leader><leader>", function()
-    vim.cmd("so")
+	vim.cmd("so")
 end)
 
-vim.keymap.set({ "n", "x" }, "<C-h>", "<cmd> TmuxNavigateLeft<CR>");
-vim.keymap.set({ "n", "x" }, "<C-l>", "<cmd> TmuxNavigateRight<CR>");
-vim.keymap.set({ "n", "x" }, "<C-j>", "<cmd> TmuxNavigateDown<CR>");
-vim.keymap.set({ "n", "x" }, "<C-k>", "<cmd> TmuxNavigateUp<CR>");
+vim.keymap.set({ "n", "x" }, "<C-h>", "<cmd> TmuxNavigateLeft<CR>")
+vim.keymap.set({ "n", "x" }, "<C-l>", "<cmd> TmuxNavigateRight<CR>")
+vim.keymap.set({ "n", "x" }, "<C-j>", "<cmd> TmuxNavigateDown<CR>")
+vim.keymap.set({ "n", "x" }, "<C-k>", "<cmd> TmuxNavigateUp<CR>")
+
+vim.keymap.set("n", "<Tab>", "gt")
+vim.keymap.set("n", "<S-Tab>", "gT")
+vim.keymap.set("n", "<A-Tab>", "<cmd>:tabclose<CR>")
+vim.keymap.set("n", "<leader><Tab>", "<cmd>:tabnew<CR>")

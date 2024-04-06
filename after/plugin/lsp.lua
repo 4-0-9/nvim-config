@@ -62,7 +62,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
 		local bufnr = args.buf
 
-		local opts = { buffer = bufnr, remap = false }
+		local opts = { buffer = bufnr, remap = false, nowait = true }
 
 		vim.keymap.set("n", "gd", function()
 			vim.lsp.buf.definition()

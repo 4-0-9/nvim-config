@@ -1,9 +1,10 @@
 local cmp = require("cmp")
 local lspkind = require("lspkind")
+local border = require('409.ui').border
 
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
-local border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" }
 local winhighlight = "Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None"
+
 
 cmp.setup({
 	snippet = {

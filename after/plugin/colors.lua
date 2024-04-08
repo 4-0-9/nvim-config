@@ -7,6 +7,7 @@ function Color(color)
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 	vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+    vim.api.nvim_set_hl(0, "FloatBorder", { fg = catppuccin_colors.surface2 })
 	vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
 	-- If Vim thinks StatusLine and StatusLineNC are the same it overrides these settings
 	vim.api.nvim_set_hl(0, "StatusLineNC", { ctermbg = 0, bg = "none" })

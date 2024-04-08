@@ -1,3 +1,5 @@
+local lspconfig = require("lspconfig")
+
 local default_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local lsp_default_capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -9,7 +11,7 @@ require("mason-lspconfig").setup({
 	ensure_installed = { "tsserver", "rust_analyzer" },
 	handlers = {
 		function(server_name)
-			require("lspconfig")[server_name].setup({
+			lspconfig[server_name].setup({
 				capabilities = capabilities,
 			})
 		end,
@@ -28,7 +30,7 @@ require("mason-lspconfig").setup({
 	},
 })
 
-require("lspconfig").yamlls.setup({
+lspconfig.yamlls.setup({
 	on_attach = function(client, bufnr)
 		client.resolved_capabilities.document_formatting = true
 	end,
@@ -43,7 +45,7 @@ require("lspconfig").yamlls.setup({
 	},
 })
 
-require("lspconfig").tsserver.setup({
+lspconfig.tsserver.setup({
 	settings = {
 		typescript = {
 			preferences = {
@@ -101,11 +103,16 @@ vim.diagnostic.config({
 	virtual_text = true,
 	update_in_insert = true,
 	float = {
-		focusable = false,
-		style = "minimal",
-		border = "rounded",
-		source = "always",
-		header = "",
-		prefix = "",
+		border = "single",
 	},
 })
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+    vim.lsp.handlers.hover, {
+        border = "single"
+    }
+)
+
+require("lspconfig.ui.windows").default_options = {
+	border = "single",
+}

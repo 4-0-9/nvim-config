@@ -1,2 +1,2 @@
-local todo = require('todo-comments')
-todo.setup()
+-- local todo = require('todo-comments')
+-- todo.setup()

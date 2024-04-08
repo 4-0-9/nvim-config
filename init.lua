@@ -1,1 +1,2 @@
-require('409')
+require("409").setup()
+

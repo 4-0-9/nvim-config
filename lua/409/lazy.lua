@@ -12,4 +12,9 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("409.plugins")
+local lazy = require("lazy")
+lazy.setup("409.plugins", {
+    ui = {
+        border = "single"
+    }
+})

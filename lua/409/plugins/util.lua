@@ -7,7 +7,15 @@ return {
         "christoomey/vim-tmux-navigator",
         lazy = false,
     },
-    "mbbill/undotree",
+    {
+        "mbbill/undotree",
+        keys = {
+            {
+                "<leader>u",
+                ":UndotreeToggle<CR>",
+            }
+        }
+    },
     "nvim-tree/nvim-web-devicons",
     {
         "RRethy/vim-illuminate",

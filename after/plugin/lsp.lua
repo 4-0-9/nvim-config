@@ -6,7 +6,7 @@ local lsp_default_capabilities = vim.lsp.protocol.make_client_capabilities()
 
 local capabilities = vim.tbl_deep_extend("force", {}, lsp_default_capabilities, default_capabilities)
 
-require("mason").setup({})
+require("mason").setup()
 require("mason-lspconfig").setup({
 	ensure_installed = { "tsserver", "rust_analyzer" },
 	handlers = {
@@ -16,7 +16,6 @@ require("mason-lspconfig").setup({
 			})
 		end,
 		["lua_ls"] = function()
-			local lspconfig = require("lspconfig")
 			lspconfig.lua_ls.setup({
 				settings = {
 					Lua = {

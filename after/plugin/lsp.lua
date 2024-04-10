@@ -6,7 +6,12 @@ local lsp_default_capabilities = vim.lsp.protocol.make_client_capabilities()
 
 local capabilities = vim.tbl_deep_extend("force", {}, lsp_default_capabilities, default_capabilities)
 
-require("mason").setup()
+require("mason").setup({
+	ui = {
+		border = "single",
+	},
+})
+
 require("mason-lspconfig").setup({
 	ensure_installed = { "tsserver", "rust_analyzer" },
 	handlers = {
@@ -106,11 +111,9 @@ vim.diagnostic.config({
 	},
 })
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-    vim.lsp.handlers.hover, {
-        border = "single"
-    }
-)
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+	border = "single",
+})
 
 require("lspconfig.ui.windows").default_options = {
 	border = "single",

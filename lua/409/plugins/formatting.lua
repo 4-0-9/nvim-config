@@ -15,7 +15,7 @@ return {
 		end,
 		config = function(plugin, opts)
 			local conform = require("conform")
-            conform.setup(opts)
+			conform.setup(opts)
 
 			conform.formatters.clang_format = {
 				args = { "--style", "{IndentWidth: 4, UseTab: Always, TabWidth: 4}" },

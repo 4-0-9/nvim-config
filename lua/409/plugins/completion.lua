@@ -23,7 +23,8 @@ return {
 					{ name = "nvim_lsp_signature_help" },
 					{ name = "nvim_lua" },
 					{ name = "luasnip", keyword_length = 2 },
-					-- { name = "buffer",                 keyword_length = 3 },
+					{ name = "vim-dadbod-completion" },
+					-- { name = "buffer", keyword_length = 3 },
 				},
 				view = {
 					entries = "custom",
@@ -49,6 +50,10 @@ return {
 						local strings = vim.split(kind.kind, "%s", { trimempty = true })
 						kind.kind = " " .. (strings[1] or "") .. " "
 						kind.menu = "    (" .. (strings[2] or "") .. ")"
+						if entry.source.name == "vim-dadbod-completion" then
+                            kind.kind = "  "
+							kind.menu = "[DB]"
+						end
 
 						return kind
 					end,

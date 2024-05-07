@@ -51,7 +51,7 @@ return {
 						kind.kind = " " .. (strings[1] or "") .. " "
 						kind.menu = "    (" .. (strings[2] or "") .. ")"
 						if entry.source.name == "vim-dadbod-completion" then
-                            kind.kind = "  "
+							kind.kind = "  "
 							kind.menu = "[DB]"
 						end
 

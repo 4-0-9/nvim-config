@@ -68,13 +68,21 @@ return {
 			},
 		},
 		config = function(_, opts)
+			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+				border = "single",
+			})
+
+			vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+				border = "single",
+			})
+
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function(args)
 					local buffer = args.buf
 					local lsp_opts = { buffer = buffer, remap = false, nowait = true }
 					local client = vim.lsp.get_client_by_id(args.data.client_id)
 
-                    -- TODO: Make this work once inlay hints are supported in the non-nightly nvim build
+					-- TODO: Make this work once inlay hints are supported in the non-nightly nvim build
 					if opts.inlay_hints.enabled then
 						if client.supports_method("textDocument/inlayHint") then
 							local ih = vim.lsp.buf.inlay_hint or vim.lsp.inlay_hint
@@ -124,10 +132,6 @@ return {
 			require("lspconfig.ui.windows").default_options = {
 				border = "single",
 			}
-
-            vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-                border = "single",
-            })
 		end,
 	},
 	{

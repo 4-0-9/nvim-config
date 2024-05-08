@@ -30,7 +30,7 @@ return {
 					entries = "custom",
 				},
 				completion = {
-					completeopt = "menuone,noselect,preview",
+					completeopt = "menu,menuone,noselect,preview",
 					docs_initially_visible = true,
 				},
 				window = {
@@ -59,8 +59,18 @@ return {
 					end,
 				},
 				mapping = cmp.mapping.preset.insert({
-					["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-					["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+					["<C-p>"] = function()
+						if not cmp.visible() then
+							cmp.complete()
+						end
+						cmp.select_prev_item(cmp_select)
+					end,
+					["<C-n>"] = function()
+						if not cmp.visible() then
+							cmp.complete()
+						end
+						cmp.select_next_item(cmp_select)
+					end,
 					["<C-k>"] = cmp.mapping.scroll_docs(-4),
 					["<C-j>"] = cmp.mapping.scroll_docs(4),
 					["<C-y>"] = cmp.mapping.confirm({ select = true }),

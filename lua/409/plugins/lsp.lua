@@ -85,12 +85,7 @@ return {
 					-- TODO: Make this work once inlay hints are supported in the non-nightly nvim build
 					if opts.inlay_hints.enabled then
 						if client.supports_method("textDocument/inlayHint") then
-							local ih = vim.lsp.buf.inlay_hint or vim.lsp.inlay_hint
-							if type(ih) == "function" then
-								ih(buffer, true)
-							elseif type(ih) == "table" and ih.enable then
-								ih.enable(buffer, true)
-							end
+                            vim.lsp.inlay_hint.enable(true)
 						end
 					end
 

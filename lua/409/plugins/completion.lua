@@ -88,4 +88,19 @@ return {
 	"hrsh7th/cmp-path",
 	"hrsh7th/cmp-cmdline",
 	"L3MON4D3/LuaSnip",
+	{
+		"kosayoda/nvim-lightbulb",
+		opts = {
+            priority = 200,
+			autocmd = {
+				enabled = true,
+			},
+            action_kinds = {
+                "quickfix",
+            },
+		},
+		config = function(plugin, opts)
+			require('nvim-lightbulb').setup(opts)
+		end,
+	},
 }

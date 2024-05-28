@@ -11,3 +11,13 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 	command = "lua vim.highlight.on_yank {higroup='Visual',timeout=250}",
 })
+
+-- I'm using the 'TextChanged' autocmd (buffer changed in Normal mode)
+-- to update the LSP diagnostics after selecting a code action
+vim.api.nvim_create_autocmd({ "TextChanged" }, {
+	callback = function()
+		-- This updates the LSP diagnostics
+		vim.cmd("startinsert")
+		vim.cmd("stopinsert")
+	end,
+})

@@ -21,6 +21,7 @@ return {
             vim.api.nvim_set_hl(0, "PmenuSel", { link = "Visual" })
             vim.api.nvim_set_hl(0, "PmenuSbar", { link = "Normal" })
             vim.api.nvim_set_hl(0, "CmpPmenuBorder", { fg = catppuccin_colors.surface2 })
+            vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = catppuccin_colors.surface2 })
         end
     },
 }

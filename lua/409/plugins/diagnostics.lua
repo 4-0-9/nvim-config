@@ -10,9 +10,10 @@ return {
 			},
 			{
 				"<leader>tv",
-				":Trouble<CR>",
-                desc = "Trouble",
+				":Trouble diagnostics toggle<CR>",
+                desc = "Trouble diagnostics (toggle)",
 			},
 		},
+        opts = {},
 	},
 }

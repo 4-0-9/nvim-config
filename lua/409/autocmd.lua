@@ -9,7 +9,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
-	command = "lua vim.highlight.on_yank {higroup='Visual',timeout=250}",
+	command = "lua vim.highlight.on_yank {higroup='Visual',timeout=100}",
 })
 
 -- I'm using the 'TextChanged' autocmd (buffer changed in Normal mode)

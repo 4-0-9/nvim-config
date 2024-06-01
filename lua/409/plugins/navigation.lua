@@ -39,6 +39,7 @@ return {
 				"<leader>pwf",
 				function()
 					require("telescope.builtin").lsp_dynamic_workspace_symbols({
+						prompt_title = "Find functions (LSP)",
 						symbols = "function",
 					})
 				end,

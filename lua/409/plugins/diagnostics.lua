@@ -5,7 +5,7 @@ return {
 		keys = {
 			{
 				"<leader>tt",
-				":TodoTrouble<CR>",
+				":TodoTrouble toggle<CR>",
 				desc = "Trouble (TODOs)",
 			},
 			{

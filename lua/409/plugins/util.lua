@@ -18,12 +18,20 @@ return {
 	},
 	"nvim-tree/nvim-web-devicons",
 	{
+		"rachartier/tiny-devicons-auto-colors.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+        event = "VeryLazy",
+        config = function()
+            require("tiny-devicons-auto-colors").setup()
+        end
+	},
+	{
 		"RRethy/vim-illuminate",
 		event = "VeryLazy",
 	},
 	{
-        "echasnovski/mini.surround",
-        version = "*",
-        config = true
-    },
+		"echasnovski/mini.surround",
+		version = "*",
+		config = true,
+	},
 }

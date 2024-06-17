@@ -10,4 +10,10 @@ return {
 			require("flutter-tools").setup({})
 		end,
 	},
+	{
+		"dmmulroy/tsc.nvim",
+		config = function()
+			require("tsc").setup()
+		end,
+	},
 }

@@ -99,6 +99,16 @@ return {
 			"SmiteshP/nvim-navic",
 			"nvim-tree/nvim-web-devicons", -- optional dependency
 		},
-		config = true
+		opts = {
+            ---Whether to create winbar updater autocmd.
+            ---
+            ---@type boolean
+            create_autocmd = true,
+			---Filetypes not to enable winbar in.
+			---
+			---@type string[]
+			exclude_filetypes = { "netrw", "toggleterm" },
+		},
+		config = true,
 	},
 }

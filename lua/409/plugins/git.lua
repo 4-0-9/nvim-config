@@ -4,7 +4,7 @@ return {
         keys = {
             {
                 "<leader>gs",
-                ":Git<CR>",
+                ":tab Git<CR>",
                 desc = "Fugitive"
             },
         },

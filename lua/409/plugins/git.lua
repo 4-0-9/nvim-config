@@ -1,32 +1,14 @@
 return {
 	{
-		"NeogitOrg/neogit",
-		dependencies = {
-			"nvim-lua/plenary.nvim", -- required
-			"sindrets/diffview.nvim", -- optional - Diff integration
-
-			"nvim-telescope/telescope.nvim", -- optional
-		},
+		"tpope/vim-fugitive",
         keys = {
             {
                 "<leader>gs",
-                ":Neogit<CR>",
-                desc = "Neogit"
+                ":Git<CR>",
+                desc = "Fugitive"
             },
         },
-        opts = {
-            signs = {
-                item = { ">", "v" },
-                section = { ">", "v" },
-            },
-            mappings = {
-                status = {
-                    ["="] = "Toggle",
-                    ["<tab>"] = false,
-                },
-            },
-        },
-		config = true,
+        lazy = true,
 	},
 	{
 		"echasnovski/mini.diff",

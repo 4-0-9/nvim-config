@@ -82,13 +82,6 @@ return {
 					local lsp_opts = { buffer = buffer, remap = false, nowait = true }
 					local client = vim.lsp.get_client_by_id(args.data.client_id)
 
-					-- TODO: Make this work once inlay hints are supported in the non-nightly nvim build
-					if opts.inlay_hints.enabled then
-						if client.supports_method("textDocument/inlayHint") then
-                            vim.lsp.inlay_hint.enable(true)
-						end
-					end
-
 					vim.keymap.set("n", "gd", function()
 						vim.lsp.buf.definition()
 					end, lsp_opts)

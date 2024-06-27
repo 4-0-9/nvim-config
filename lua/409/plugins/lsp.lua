@@ -32,6 +32,7 @@ return {
 				},
 			}
 		end,
+        config = true,
 	},
 	{
 		"neovim/nvim-lspconfig",
@@ -112,6 +113,10 @@ return {
 					vim.keymap.set("i", "<C-h>", function()
 						vim.lsp.buf.signature_help()
 					end, lsp_opts)
+
+					if opts.inlay_hints.enabled and client.supports_method("textDocument/inlayHint") then
+						vim.lsp.inlay_hint.enable(true)
+					end
 				end,
 			})
 

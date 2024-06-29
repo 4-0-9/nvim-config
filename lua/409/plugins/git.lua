@@ -15,4 +15,8 @@ return {
 		version = false,
 		config = true,
 	},
+    {
+        "sindrets/diffview.nvim",
+        config = true,
+    },
 }

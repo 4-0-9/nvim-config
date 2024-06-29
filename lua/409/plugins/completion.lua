@@ -19,11 +19,10 @@ return {
 				},
 				sources = {
 					{ name = "nvim_lsp" },
-					{ name = "path" },
 					{ name = "nvim_lsp_signature_help" },
 					{ name = "nvim_lua" },
-					{ name = "luasnip", keyword_length = 2 },
 					{ name = "vim-dadbod-completion" },
+                    { name = "luasnip", keyword_length = 2 },
 					-- { name = "buffer", keyword_length = 3 },
 				},
 				view = {
@@ -55,6 +54,13 @@ return {
 							kind.menu = "[DB]"
 						end
 
+						vim_item.dup = ({
+							vsnip = 0,
+							nvim_lsp = 0,
+							nvim_lua = 0,
+							buffer = 0,
+						})[entry.source.name] or 0
+
 						return kind
 					end,
 				},
@@ -78,6 +84,15 @@ return {
 					["<Tab>"] = nil,
 					["<S-Tab>"] = nil,
 				}),
+				sorting = {
+					comparators = {
+						cmp.config.compare.offset,
+						cmp.config.compare.exact,
+						cmp.config.compare.score,
+						cmp.config.compare.recently_used,
+						cmp.config.compare.kind,
+					},
+				},
 			}
 		end,
 	},

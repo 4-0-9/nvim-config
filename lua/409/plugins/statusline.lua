@@ -100,10 +100,10 @@ return {
 			"nvim-tree/nvim-web-devicons", -- optional dependency
 		},
 		opts = {
-            ---Whether to create winbar updater autocmd.
-            ---
-            ---@type boolean
-            create_autocmd = true,
+			---Whether to create winbar updater autocmd.
+			---
+			---@type boolean
+			create_autocmd = true,
 			---Filetypes not to enable winbar in.
 			---
 			---@type string[]

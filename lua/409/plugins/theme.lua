@@ -22,6 +22,8 @@ return {
             vim.api.nvim_set_hl(0, "PmenuSbar", { link = "Normal" })
             vim.api.nvim_set_hl(0, "CmpPmenuBorder", { fg = catppuccin_colors.surface2 })
             vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = catppuccin_colors.surface2 })
+            vim.api.nvim_set_hl(0, "DiffAdd", { fg = catppuccin_colors.green, bg = "none" })
+            vim.api.nvim_set_hl(0, "DiffDelete", { fg = catppuccin_colors.red, bg = "none" })
         end
     },
 }

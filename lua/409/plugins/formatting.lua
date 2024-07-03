@@ -29,7 +29,15 @@ return {
 				if not conform.format({ bufnr = vim.lsp.bufnr }) then
 					vim.lsp.buf.format()
 				end
+
+                pcall(vim.cmd("TailwindSort"))
 			end)
 		end,
+	},
+	{
+		"luckasRanarison/tailwind-tools.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+        lazy = false,
+        config = true,
 	},
 }

@@ -7,7 +7,7 @@ return {
 					lua = { "stylua" },
 					c = { "clang_format" },
 					cs = { "csharpier" },
-					javascript = { { "prettierd", "prettier" } },
+					javascript = { "prettierd" },
 					rust = { "rustfmt" },
 					dart = { "dart_format" },
 				},

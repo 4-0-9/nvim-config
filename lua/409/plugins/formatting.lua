@@ -26,11 +26,11 @@ return {
 			}
 
 			vim.keymap.set("n", "<leader>f", function()
+                -- pcall(vim.cmd("TailwindSort"))
+
 				if not conform.format({ bufnr = vim.lsp.bufnr }) then
 					vim.lsp.buf.format()
 				end
-
-                pcall(vim.cmd("TailwindSort"))
 			end)
 		end,
 	},

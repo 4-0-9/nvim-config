@@ -36,3 +36,5 @@ vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 
 vim.opt.showmode = false
+vim.opt.concealcursor='n'
+vim.opt.conceallevel=2

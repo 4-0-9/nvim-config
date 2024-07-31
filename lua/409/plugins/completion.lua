@@ -1,8 +1,10 @@
 return {
-	"onsails/lspkind.nvim",
 	{
 		"hrsh7th/nvim-cmp",
-		dependencies = { "onsails/lspkind.nvim" },
+		dependencies = {
+			"onsails/lspkind.nvim",
+			"VonHeikemen/lsp-zero.nvim",
+		},
 		opts = function()
 			local cmp = require("cmp")
 			local lspkind = require("lspkind")
@@ -22,7 +24,7 @@ return {
 					{ name = "nvim_lsp_signature_help" },
 					{ name = "nvim_lua" },
 					{ name = "vim-dadbod-completion" },
-                    { name = "luasnip", keyword_length = 2 },
+					{ name = "luasnip", keyword_length = 2 },
 					-- { name = "buffer", keyword_length = 3 },
 				},
 				view = {

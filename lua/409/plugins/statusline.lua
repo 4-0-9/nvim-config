@@ -62,7 +62,7 @@ return {
 				always_divide_middle = true,
 				globalstatus = false,
 				refresh = {
-					statusline = 1000,
+					statusline = 100,
 					tabline = 1000,
 					winbar = 1000,
 				},
@@ -70,7 +70,13 @@ return {
 			sections = {
 				lualine_a = { "mode" },
 				lualine_b = { "branch", "diff", "diagnostics" },
-				lualine_c = { "filename" },
+				lualine_c = {
+					"filename",
+					{
+						require("noice").api.statusline.mode.get,
+						cond = require("noice").api.statusline.mode.has,
+					},
+				},
 				lualine_x = { "fileformat", "filetype" },
 				lualine_y = { "progress" },
 				lualine_z = { "location" },

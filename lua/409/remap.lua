@@ -45,3 +45,6 @@ vim.keymap.set("n", "<Tab>", "gt")
 vim.keymap.set("n", "<S-Tab>", "gT")
 vim.keymap.set("n", "<A-Tab>", "<cmd>:tabclose<CR>")
 vim.keymap.set("n", "<leader><Tab>", "<cmd>:tabnew<CR>")
+
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")

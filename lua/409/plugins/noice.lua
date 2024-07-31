@@ -1,8 +1,5 @@
 return {
 	"folke/noice.nvim",
-    dependencies = {
-        "MunifTanjim/nui.nvim",
-    },
 	event = "VeryLazy",
 	opts = {},
 	config = function()
@@ -13,9 +10,9 @@ return {
 					["vim.lsp.util.stylize_markdown"] = true,
 					["cmp.entry.get_documentation"] = true,
 				},
-                hover = {
-                    silent = true,
-                }
+				hover = {
+					silent = true,
+				},
 			},
 			presets = {
 				bottom_search = true,
@@ -40,6 +37,22 @@ return {
 						winblend = 0,
 					},
 				},
+                cmdline_popup = {
+                    border = {
+                        style = "none"
+                    },
+                },
+                popup = {
+                    border = {
+                        style = "single",
+                    },
+                },
+                confirm = {
+                    backend = "popup",
+                    border = {
+                        style = "single",
+                    },
+                },
 			},
 		})
 	end,

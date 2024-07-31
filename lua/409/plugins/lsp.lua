@@ -68,7 +68,9 @@ return {
 					"marksman",
 				},
 				handlers = {
-					lsp.default_setup,
+					function(server_name)
+						require("lspconfig")[server_name].setup({})
+					end,
 					lua_ls = function()
 						require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
 					end,
@@ -111,16 +113,6 @@ return {
 			},
 		},
 		config = function(_, opts)
-			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-				border = "single",
-				virtual_text = true,
-                silent = true,
-			})
-
-			vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-				border = "single",
-			})
-
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function(args)
 					local buffer = args.buf

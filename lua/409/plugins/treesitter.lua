@@ -12,6 +12,7 @@ return {
 					"vim",
 					"vimdoc",
 					"gitcommit",
+                    "rust",
 				},
 				tree_docs = {
 					enable = true,
@@ -34,7 +35,7 @@ return {
 				},
 				indent = {
 					enable = true,
-					disable = { "yaml" },
+					disable = { "yaml", "rust" },
 				},
 			})
 		end,

@@ -57,7 +57,6 @@ return {
 				ensure_installed = {
 					"tsserver",
 					"eslint",
-					"rust_analyzer",
 					"lua_ls",
 					"jsonls",
 					"html",
@@ -66,6 +65,7 @@ return {
 					"dockerls",
 					"bashls",
 					"marksman",
+					"rust_analyzer",
 				},
 				handlers = {
 					function(server_name)
@@ -140,6 +140,7 @@ return {
 		"williamboman/mason.nvim",
 		dependencies = {},
 		opts = {
+			PATH = "append",
 			ui = {
 				border = "single",
 			},

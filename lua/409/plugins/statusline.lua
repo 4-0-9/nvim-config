@@ -113,7 +113,7 @@ return {
 			---Filetypes not to enable winbar in.
 			---
 			---@type string[]
-			exclude_filetypes = { "netrw", "toggleterm" },
+			exclude_filetypes = { "netrw", "toggleterm", "oil" },
 		},
 		config = true,
 	},

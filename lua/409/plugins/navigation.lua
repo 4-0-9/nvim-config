@@ -163,4 +163,31 @@ return {
 			end
 		end,
 	},
+	{
+		"stevearc/oil.nvim",
+		lazy = false,
+		opts = {
+			keymaps = {
+				["<C-c>"] = false,
+				["<C-l>"] = false,
+				["<C-h>"] = false,
+			},
+		},
+		keys = {
+			{
+				"<leader>pv",
+				":Oil<CR>",
+				desc = "File explorer (Oil)",
+			},
+			{
+				"<leader>ppv",
+				function()
+					require("oil").open_float()
+				end,
+				desc = "Floating file explorer (Oil)",
+			},
+		},
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = true,
+	},
 }

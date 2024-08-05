@@ -27,12 +27,20 @@ return {
 		keys = {
 			{
 				"<leader>pf",
-				":Telescope find_files<CR>",
+				function()
+					require("telescope.builtin").find_files({
+						prompt_title = "Find files",
+					})
+				end,
 				desc = "Find files",
 			},
 			{
 				"<leader>pw",
-				":Telescope lsp_dynamic_workspace_symbols<CR>",
+				function()
+					require("telescope.builtin").lsp_dynamic_workspace_symbols({
+						prompt_title = "Find symbols (LSP)",
+					})
+				end,
 				desc = "Find symbols (LSP)",
 			},
 			{
@@ -97,12 +105,18 @@ return {
 			},
 			{
 				"<C-p>",
-				":Telescope git_files<CR>",
+				function()
+					require("telescope.builtin").git_files({
+						prompt_title = "Find files (Git)",
+					})
+				end,
 				desc = "Find files (git)",
 			},
 			{
 				"<leader>pt",
-				":TodoTelescope<CR>",
+				function()
+					vim.cmd("TodoTelescope")
+				end,
 				desc = "Find TODOs",
 			},
 			{
@@ -130,7 +144,9 @@ return {
 			},
 			{
 				"<C-b>",
-				":Telescope buffers<CR>",
+				function()
+					require("telescope.builtin").buffers()
+				end,
 				desc = "Find buffers",
 			},
 		},
@@ -171,15 +187,18 @@ return {
 				["<C-c>"] = false,
 				["<C-l>"] = false,
 				["<C-h>"] = false,
+				["<C-p>"] = false,
 			},
 			float = {
 				border = "single",
-			}
+			},
 		},
 		keys = {
 			{
 				"<leader>pv",
-				":Oil<CR>",
+				function()
+					require("oil").open()
+				end,
 				desc = "File explorer (Oil)",
 			},
 			{

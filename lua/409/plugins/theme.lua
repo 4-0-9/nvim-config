@@ -27,6 +27,12 @@ return {
 
             vim.api.nvim_set_hl(0, "NoiceFormatProgressTodo", { link = "Normal" })
             vim.api.nvim_set_hl(0, "NoiceFormatProgressDone", { link = "Normal" })
+
+            vim.api.nvim_set_hl(0, "NoiceCmdlinePopupBorder", { fg = catppuccin_colors.peach })
+            vim.api.nvim_set_hl(0, "NoiceCmdlineIconCmdline", { fg = catppuccin_colors.peach })
+            vim.api.nvim_set_hl(0, "NoiceCmdlineIconHelp", { fg = catppuccin_colors.blue })
+            vim.api.nvim_set_hl(0, "NoiceCmdlineIconSearch", { fg = catppuccin_colors.blue })
+            vim.api.nvim_set_hl(0, "NoiceCmdlinePopupBorderSearch", { fg = catppuccin_colors.blue })
         end
     },
 }

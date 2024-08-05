@@ -4,7 +4,10 @@ return {
 		keys = {
 			{
 				"<leader>gs",
-				":tab Git<CR>",
+				function()
+					vim.cmd("tab Git")
+				end,
+				-- ":tab Git<CR>",
 				desc = "Fugitive",
 			},
 		},

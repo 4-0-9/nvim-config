@@ -15,7 +15,7 @@ return {
 				},
 			},
 			presets = {
-				bottom_search = true,
+				bottom_search = false,
 				inc_rename = false,
 				lsp_doc_border = true,
 			},
@@ -39,10 +39,15 @@ return {
 				},
                 cmdline_popup = {
                     border = {
-                        style = "none"
+                        style = "single"
                     },
                 },
                 popup = {
+                    border = {
+                        style = "single",
+                    },
+                },
+                popupmenu = {
                     border = {
                         style = "single",
                     },
@@ -55,5 +60,7 @@ return {
                 },
 			},
 		})
+
+		require("telescope").load_extension("noice")
 	end,
 }

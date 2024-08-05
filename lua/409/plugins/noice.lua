@@ -24,7 +24,7 @@ return {
 				view = "cmdline",
 			},
 			messages = {
-				enabled = true,
+				enabled = false,
 			},
 			views = {
 				hover = {

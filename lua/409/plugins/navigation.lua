@@ -9,8 +9,7 @@ return {
 				layout_config = {
 					horizontal = {
 						prompt_position = "bottom",
-						preview_width = 0.55,
-						results_width = 0.8,
+						preview_width = 0.65,
 					},
 					vertical = {
 						mirror = false,
@@ -21,7 +20,9 @@ return {
 				},
 				borderchars = require("409.ui").telescope_border,
 				prompt_prefix = "   ",
+				selection_caret = "󰅂 ",
 				color_devicons = true,
+				sorting_strategy = "descending",
 			},
 		},
 		keys = {

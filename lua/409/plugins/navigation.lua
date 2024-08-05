@@ -172,6 +172,9 @@ return {
 				["<C-l>"] = false,
 				["<C-h>"] = false,
 			},
+			float = {
+				border = "single",
+			}
 		},
 		keys = {
 			{

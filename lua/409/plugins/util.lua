@@ -26,10 +26,6 @@ return {
 		end,
 	},
 	{
-		"RRethy/vim-illuminate",
-		event = "VeryLazy",
-	},
-	{
 		"echasnovski/mini.surround",
 		version = "*",
 		config = true,

@@ -193,6 +193,9 @@ return {
 			float = {
 				border = "single",
 			},
+			view_options = {
+				show_hidden = true,
+			},
 		},
 		keys = {
 			{

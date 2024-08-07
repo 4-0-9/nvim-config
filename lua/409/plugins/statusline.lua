@@ -1,49 +1,3 @@
-local lualine_theme = function()
-	local colors = {
-		darkgray = "#181825",
-		gray = "#cdd6f4",
-		innerbg = nil,
-		outerbg = "#313244",
-		normal = "#89b4fa",
-		insert = "#a6e3a1",
-		visual = "#cdd6f4",
-		replace = "#f38ba8",
-		command = "#fab387",
-	}
-	return {
-		inactive = {
-			a = { fg = colors.gray, bg = colors.outerbg, gui = "bold" },
-			b = { fg = colors.gray, bg = colors.outerbg },
-			c = { fg = colors.gray, bg = colors.innerbg },
-		},
-		visual = {
-			a = { fg = colors.darkgray, bg = colors.visual, gui = "bold" },
-			b = { fg = colors.gray, bg = colors.outerbg },
-			c = { fg = colors.gray, bg = colors.innerbg },
-		},
-		replace = {
-			a = { fg = colors.darkgray, bg = colors.replace, gui = "bold" },
-			b = { fg = colors.gray, bg = colors.outerbg },
-			c = { fg = colors.gray, bg = colors.innerbg },
-		},
-		normal = {
-			a = { fg = colors.darkgray, bg = colors.normal, gui = "bold" },
-			b = { fg = colors.gray, bg = colors.outerbg },
-			c = { fg = colors.gray, bg = colors.innerbg },
-		},
-		insert = {
-			a = { fg = colors.darkgray, bg = colors.insert, gui = "bold" },
-			b = { fg = colors.gray, bg = colors.outerbg },
-			c = { fg = colors.gray, bg = colors.innerbg },
-		},
-		command = {
-			a = { fg = colors.darkgray, bg = colors.command, gui = "bold" },
-			b = { fg = colors.gray, bg = colors.outerbg },
-			c = { fg = colors.gray, bg = colors.innerbg },
-		},
-	}
-end
-
 return {
 	{
 		"nvim-lualine/lualine.nvim",
@@ -51,7 +5,7 @@ return {
 		opts = {
 			options = {
 				icons_enabled = true,
-				theme = lualine_theme(),
+				theme = "dracula-nvim",
 				component_separators = { left = "", right = "" },
 				section_separators = { left = "", right = "" },
 				disabled_filetypes = {

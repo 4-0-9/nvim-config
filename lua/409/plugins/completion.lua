@@ -8,10 +8,11 @@ return {
 		opts = function()
 			local cmp = require("cmp")
 			local lspkind = require("lspkind")
-			local border = require("409.ui").border
 
 			local cmp_select = { behavior = cmp.SelectBehavior.Select }
 			local winhighlight = "Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None"
+
+			vim.api.nvim_set_hl(0, "CmpPmenuBorder", { link = "FloatBorder" })
 
 			return {
 				snippet = {
@@ -36,18 +37,18 @@ return {
 				},
 				window = {
 					documentation = {
-						border = border,
+						border = "single",
 						winhighlight = winhighlight,
 					},
 					completion = {
-						border = border,
+						border = "single",
 						winhighlight = winhighlight,
 					},
 				},
 				formatting = {
 					fields = { "kind", "abbr", "menu" },
 					format = function(entry, vim_item)
-						local kind = lspkind.cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+						local kind = lspkind.cmp_format({ mode = "symbol_text", maxwidth = 70 })(entry, vim_item)
 						local strings = vim.split(kind.kind, "%s", { trimempty = true })
 						kind.kind = " " .. (strings[1] or "") .. " "
 						kind.menu = "    (" .. (strings[2] or "") .. ")"

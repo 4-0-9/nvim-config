@@ -11,6 +11,7 @@ return {
 					typescript = { "prettierd" },
 					css = { "prettierd" },
 					svelte = { "prettierd" },
+					json = { "prettierd" },
 					dart = { "dart_format" },
 				},
 			}
@@ -24,7 +25,7 @@ return {
 			}
 
 			vim.keymap.set("n", "<leader>f", function()
-                -- pcall(vim.cmd("TailwindSort"))
+				-- pcall(vim.cmd("TailwindSort"))
 
 				if not conform.format({ bufnr = vim.lsp.bufnr }) then
 					vim.lsp.buf.format()
@@ -35,12 +36,12 @@ return {
 	{
 		"luckasRanarison/tailwind-tools.nvim",
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
-        lazy = false,
-        opts = {
-            document_color = {
-                enabled = false,
-            },
-        },
-        config = true,
+		lazy = false,
+		opts = {
+			document_color = {
+				enabled = false,
+			},
+		},
+		config = true,
 	},
 }

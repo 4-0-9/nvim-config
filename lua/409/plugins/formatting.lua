@@ -9,6 +9,8 @@ return {
 					cs = { "csharpier" },
 					javascript = { "prettierd" },
 					typescript = { "prettierd" },
+					css = { "prettierd" },
+					svelte = { "prettierd" },
 					dart = { "dart_format" },
 				},
 			}

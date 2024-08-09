@@ -8,6 +8,7 @@ return {
 					c = { "clang_format" },
 					cs = { "csharpier" },
 					javascript = { "prettierd" },
+					typescript = { "prettierd" },
 					dart = { "dart_format" },
 				},
 			}

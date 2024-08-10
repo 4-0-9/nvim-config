@@ -17,6 +17,8 @@ return {
 
 			vim.api.nvim_set_hl(0, "TabLine", { fg = "#f8f8f2", bg = "#44475a" })
 			vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#282a36", bg = "#50fa7b", bold = true })
+			vim.api.nvim_set_hl(0, "DashboardHeader", { fg = "#50fa7b" })
+			vim.api.nvim_set_hl(0, "DashboardShortCut", { fg = "#bd93f9" })
 		end,
 	},
 }

@@ -75,7 +75,7 @@ return {
 				dashboard.button("LDR LDR  ", "  Return to this screen"),
 				dashboard.button("LDR p v", "  Explore"),
 				dashboard.button("LDR p f", "  Find File"),
-				dashboard.button("LDR p f", "  Find Git File"),
+				dashboard.button("CTRL p", "  Find Git File"),
 				dashboard.button("LDR p l", "  Find Word"),
 			}
 

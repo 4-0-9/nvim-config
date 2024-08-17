@@ -16,6 +16,11 @@ return {
 			local lsp = require("lsp-zero")
 
 			lsp.on_attach(function(client, bufnr)
+				if vim.bo[bufnr].filetype == "markdown" then
+					print('markdown')
+					return
+				end
+
 				local lsp_opts = { buffer = bufnr, remap = false }
 
 				vim.keymap.set("n", "gd", function()

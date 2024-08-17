@@ -1,23 +1,43 @@
 return {
 	"epwalsh/obsidian.nvim",
-	version = "*", -- recommended, use latest release instead of latest commit
+	version = "*",
 	lazy = true,
 	ft = "markdown",
-	-- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
-	-- event = {
-	--   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
-	--   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/*.md"
-	--   -- refer to `:h file-pattern` for more examples
-	--   "BufReadPre path/to/my-vault/*.md",
-	--   "BufNewFile path/to/my-vault/*.md",
-	-- },
 	dependencies = {
-		-- Required.
 		"nvim-lua/plenary.nvim",
-
-		-- see below for full list of optional dependencies 👇
+	},
+	keys = {
+		{
+			"<leader>of",
+			":ObsidianQuickSwitch<CR>",
+			"Find files (Obsidian)",
+		},
+		{
+			"<leader>ot",
+			":ObsidianTags<CR>",
+			"Find tags (Obsidian)",
+		},
+		{
+			"<leader>ol",
+			":ObsidianLinks<CR>",
+			"Find links (Obsidian)",
+		},
+		{
+			"<leader>ow",
+			":ObsidianWorkspace<CR>",
+			"Find workspaces (Obsidian)",
+		},
+		{
+			"gd",
+			":ObsidianFollowLink<CR>",
+			"Follow link (Obsidian)",
+		},
 	},
 	opts = {
+		preferred_link_style = "markdown",
+		follow_url_func = function(url)
+			vim.fn.jobstart({ "xdg-open", url })
+		end,
 		ui = {
 			enable = false,
 		},
@@ -27,7 +47,5 @@ return {
 				path = "~/obsidian/409",
 			},
 		},
-
-		-- see below for full list of options 👇
 	},
 }

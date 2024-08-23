@@ -37,6 +37,13 @@ return {
 		"luckasRanarison/tailwind-tools.nvim",
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 		lazy = false,
+		keys = {
+			{
+				"<leader>ts",
+				":TailwindSort<CR>",
+				"Sort TailwindCSS classes",
+			},
+		},
 		opts = {
 			document_color = {
 				enabled = false,

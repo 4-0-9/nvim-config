@@ -66,7 +66,7 @@ return {
 						align_shortcut = "right",
 						hl = "DashboardCenter",
 						hl_shortcut = "DashboardShortcut",
-						keymap = rhs and { "n", lhs, rhs, require("astrocore").extend_tbl(default_map_opts, map_opts) },
+						keymap = rhs and { "n", lhs, rhs },
 					},
 				}
 			end
@@ -75,7 +75,7 @@ return {
 				dashboard.button("LDR LDR  ", "  Return to this screen"),
 				dashboard.button("LDR p v", "  Explore"),
 				dashboard.button("LDR p f", "  Find File"),
-				dashboard.button("CTRL p", "  Find Git File"),
+				dashboard.button("<C-p>", "  Find Git File"),
 				dashboard.button("LDR p l", "  Find Word"),
 			}
 

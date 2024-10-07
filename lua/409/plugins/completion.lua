@@ -1,9 +1,22 @@
 return {
 	{
-		"hrsh7th/nvim-cmp",
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = true,
+	},
+	{
+		"iguanacucumber/magazine.nvim",
+		name = "nvim-cmp",
 		dependencies = {
 			"onsails/lspkind.nvim",
 			"VonHeikemen/lsp-zero.nvim",
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-nvim-lsp-signature-help",
+			"hrsh7th/cmp-nvim-lua",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline",
+			"L3MON4D3/LuaSnip",
 		},
 		opts = function()
 			local cmp = require("cmp")
@@ -13,6 +26,8 @@ return {
 			local winhighlight = "Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None"
 
 			vim.api.nvim_set_hl(0, "CmpPmenuBorder", { link = "FloatBorder" })
+
+			cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
 
 			return {
 				snippet = {
@@ -99,11 +114,4 @@ return {
 			}
 		end,
 	},
-	"hrsh7th/cmp-nvim-lsp",
-	"hrsh7th/cmp-nvim-lsp-signature-help",
-	"hrsh7th/cmp-nvim-lua",
-	"hrsh7th/cmp-buffer",
-	"hrsh7th/cmp-path",
-	"hrsh7th/cmp-cmdline",
-	"L3MON4D3/LuaSnip",
 }

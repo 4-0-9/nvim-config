@@ -35,22 +35,22 @@ return {
 				":Neogen class<CR>",
 				desc = "Document class",
 			},
-			{
+			--[[ {
 				"<C-k>",
 				function()
 					require("neogen").jump_next()
 				end,
 				mode = "i",
 				desc = "Next documentation field",
-			},
-			{
+			}, ]]
+			--[[ {
 				"<C-j>",
 				function()
 					require("neogen").jump_prev()
 				end,
 				mode = "i",
 				desc = "Previous documentation field",
-			},
+			}, ]]
 		},
 	},
 	{

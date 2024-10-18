@@ -68,30 +68,6 @@ return {
 					vim.lsp.buf.signature_help()
 				end, lsp_opts)
 			end)
-
-			require("mason-lspconfig").setup({
-				ensure_installed = {
-					"tsserver",
-					"eslint",
-					"lua_ls",
-					"jsonls",
-					"html",
-					"tailwindcss",
-					"pylsp",
-					"dockerls",
-					"bashls",
-					"marksman",
-					"rust_analyzer",
-				},
-				handlers = {
-					function(server_name)
-						require("lspconfig")[server_name].setup({})
-					end,
-					lua_ls = function()
-						require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
-					end,
-				},
-			})
 		end,
 	},
 	{
@@ -112,11 +88,45 @@ return {
 				enabled = false,
 			},
 			servers = {
-				tsserver = {
+				vtsls = {
+					filetypes = {
+						"javascript",
+						"javascriptreact",
+						"javascript.jsx",
+						"typescript",
+						"typescriptreact",
+						"typescript.tsx",
+					},
 					settings = {
+						vtsls = {
+							ts_ls = {
+								globalPlugins = {
+									{
+										name = "typescript-svelte-plugin",
+										location = vim.fn.getcwd() .. "/node_modules/typescript-svelte-plugin",
+										enableForWorkspaceTypeScriptVersions = true,
+									},
+								},
+							},
+							tsserver = {
+								globalPlugins = {
+									{
+										name = "typescript-svelte-plugin",
+										location = vim.fn.getcwd() .. "/node_modules/typescript-svelte-plugin",
+										enableForWorkspaceTypeScriptVersions = true,
+									},
+								},
+							},
+						},
 						typescript = {
 							preferences = {
 								quoteStyle = "single",
+							},
+							updateImportsOnFileMove = {
+								enabled = "always",
+							},
+							suggest = {
+								completeFunctionCalls = true,
 							},
 						},
 						javascript = {
@@ -126,9 +136,18 @@ return {
 						},
 					},
 				},
+				svelte = {
+					capabilities = {
+						workspace = {
+							didChangeWatchedFiles = { dynamicRegistration = true },
+						},
+					},
+				},
 			},
 		},
 		config = function(_, opts)
+			local lsp = require("lsp-zero")
+
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function(args)
 					local buffer = args.buf
@@ -142,6 +161,16 @@ return {
 					then
 						vim.lsp.inlay_hint.enable(true)
 					end
+
+					if client ~= nil and client.name == "svelte" then
+						vim.api.nvim_create_autocmd("BufWritePost", {
+							pattern = { "*.svelte", "*.js", "*.ts" },
+							group = vim.api.nvim_create_augroup("svelte_ondidchangetsorjsfile", { clear = true }),
+							callback = function(ctx)
+								client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+							end,
+						})
+					end
 				end,
 			})
 
@@ -150,6 +179,34 @@ return {
 			require("lspconfig.ui.windows").default_options = {
 				border = "single",
 			}
+
+			local lspconfig = require("lspconfig")
+
+			require("mason-lspconfig").setup({
+				ensure_installed = {
+					"vtsls",
+					"eslint",
+					"lua_ls",
+					"jsonls",
+					"html",
+					"tailwindcss",
+					"pylsp",
+					"dockerls",
+					"bashls",
+					"marksman",
+					"rust_analyzer",
+				},
+				handlers = {
+					function(server_name)
+						if lspconfig[server_name] ~= nil then
+							lspconfig[server_name].setup(opts.servers[server_name] or {})
+						end
+					end,
+					lua_ls = function()
+						require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
+					end,
+				},
+			})
 		end,
 	},
 	{

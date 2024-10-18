@@ -15,6 +15,18 @@ return {
 		config = function()
 			local lsp = require("lsp-zero")
 
+			-- Hyprlang LSP
+			vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+				pattern = { "*.hl", "hypr*.conf" },
+				callback = function(event)
+					vim.lsp.start({
+						name = "hyprlang",
+						cmd = { "hyprls" },
+						root_dir = vim.fn.getcwd(),
+					})
+				end,
+			})
+
 			lsp.on_attach(function(client, bufnr)
 				if vim.bo[bufnr].filetype == "markdown" then
 					return

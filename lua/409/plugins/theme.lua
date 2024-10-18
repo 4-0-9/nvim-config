@@ -5,6 +5,9 @@ return {
 		lazy = false,
 		priority = 1000,
 		config = function()
+			require("dracula").setup({
+				transparent_bg = true,
+			})
 			vim.cmd.colorscheme("dracula")
 
 			vim.api.nvim_set_hl(0, "QuickFixLine", { link = "Visual" })
@@ -19,6 +22,8 @@ return {
 			vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#282a36", bg = "#50fa7b", bold = true })
 			vim.api.nvim_set_hl(0, "DashboardHeader", { fg = "#50fa7b" })
 			vim.api.nvim_set_hl(0, "DashboardShortCut", { fg = "#bd93f9" })
+			vim.api.nvim_set_hl(0, "CmpItemAbbr", { bg = "none" })
+			vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = "#50fa7b", bg = "none" })
 		end,
 	},
 }

@@ -17,7 +17,6 @@ return {
 
 			lsp.on_attach(function(client, bufnr)
 				if vim.bo[bufnr].filetype == "markdown" then
-					print('markdown')
 					return
 				end
 

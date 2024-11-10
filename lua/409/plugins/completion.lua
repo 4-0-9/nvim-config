@@ -1,9 +1,9 @@
 return {
-	{
+	--[[ {
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		config = true,
-	},
+	}, ]]
 	{
 		"iguanacucumber/magazine.nvim",
 		name = "nvim-cmp",
@@ -27,7 +27,7 @@ return {
 
 			vim.api.nvim_set_hl(0, "CmpPmenuBorder", { link = "FloatBorder" })
 
-			cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
+			-- cmp.event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
 
 			return {
 				snippet = {

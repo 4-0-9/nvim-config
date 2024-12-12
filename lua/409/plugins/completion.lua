@@ -5,8 +5,7 @@ return {
 		config = true,
 	}, ]]
 	{
-		"iguanacucumber/magazine.nvim",
-		name = "nvim-cmp",
+		"hrsh7th/nvim-cmp",
 		dependencies = {
 			"onsails/lspkind.nvim",
 			"VonHeikemen/lsp-zero.nvim",

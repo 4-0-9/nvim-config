@@ -88,6 +88,22 @@ return {
 				enabled = false,
 			},
 			servers = {
+				tailwindcss = {
+					filetypes_exclude = { "markdown", "rust", "proto", "sh", "gitignore", "toml", "json", "fugitive" },
+					hovers = true,
+					suggestions = true,
+					root_dir = function(fname)
+						local root_pattern = require("lspconfig").util.root_pattern(
+							"tailwind.config.cjs",
+							"talwind.config.js",
+							"tailwind.config.ts",
+							"postcss.config.js",
+							"postcss.config.ts"
+						)
+
+						return root_pattern(fname)
+					end,
+				},
 				vtsls = {
 					filetypes = {
 						"javascript",
@@ -162,14 +178,25 @@ return {
 						vim.lsp.inlay_hint.enable(true)
 					end
 
-					if client ~= nil and client.name == "svelte" then
-						vim.api.nvim_create_autocmd("BufWritePost", {
-							pattern = { "*.svelte", "*.js", "*.ts" },
-							group = vim.api.nvim_create_augroup("svelte_ondidchangetsorjsfile", { clear = true }),
-							callback = function(ctx)
-								client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
-							end,
-						})
+					if client ~= nil then
+						if client.name == "svelte" then
+							vim.api.nvim_create_autocmd("BufWritePost", {
+								pattern = { "*.svelte", "*.js", "*.ts" },
+								group = vim.api.nvim_create_augroup("svelte_ondidchangetsorjsfile", { clear = true }),
+								callback = function(ctx)
+									client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+								end,
+							})
+						end
+
+						if vim.bo[buffer].filetype == "svelte" then
+							vim.api.nvim_create_autocmd("BufWritePost", {
+								pattern = { "*.svelte", "*.js", "*.ts" },
+								callback = function(ctx)
+									client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+								end,
+							})
+						end
 					end
 				end,
 			})

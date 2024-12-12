@@ -23,6 +23,14 @@ return {
 				selection_caret = "󰅂 ",
 				color_devicons = true,
 				sorting_strategy = "descending",
+				file_ignore_patterns = {
+					"%.jpeg",
+					"%.jpg",
+					"%.png",
+					"%.webp",
+					"%.ico",
+					"%.svg",
+				},
 			},
 		},
 		keys = {

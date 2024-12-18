@@ -38,12 +38,12 @@ return {
 				desc = "Toggle current line blame",
 			},
 			{
-				"[c",
+				"]c",
 				":Gitsigns next_hunk<CR>",
 				desc = "Jump to next hunk",
 			},
 			{
-				"]c",
+				"[c",
 				":Gitsigns prev_hunk<CR>",
 				desc = "Jump to previous hunk",
 			},

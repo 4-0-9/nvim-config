@@ -44,3 +44,6 @@ vim.keymap.set("n", "<leader><Tab>", "<cmd>:tabnew<CR>")
 
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
+
+vim.keymap.set("n", "]q", "<cmd>cnext<CR>")
+vim.keymap.set("n", "[q", "<cmd>cprev<CR>")

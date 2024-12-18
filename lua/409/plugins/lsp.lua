@@ -75,6 +75,7 @@ return {
 		dependencies = {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
+			"saghen/blink.cmp",
 		},
 		opts = {
 			diagnostics = {
@@ -162,6 +163,7 @@ return {
 			},
 		},
 		config = function(_, opts)
+			local lspconfig = require("lspconfig")
 			local lsp = require("lsp-zero")
 
 			vim.api.nvim_create_autocmd("LspAttach", {
@@ -207,8 +209,6 @@ return {
 				border = "single",
 			}
 
-			local lspconfig = require("lspconfig")
-
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"vtsls",
@@ -226,11 +226,17 @@ return {
 				handlers = {
 					function(server_name)
 						if lspconfig[server_name] ~= nil then
-							lspconfig[server_name].setup(opts.servers[server_name] or {})
+							local config = opts.servers[server_name] or {}
+							config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
+
+							lspconfig[server_name].setup(config)
 						end
 					end,
 					lua_ls = function()
-						require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
+						local config = lsp.nvim_lua_ls()
+						config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
+
+						require("lspconfig").lua_ls.setup(config)
 					end,
 				},
 			})

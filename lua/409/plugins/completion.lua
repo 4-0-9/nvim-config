@@ -57,7 +57,6 @@ return {
 			completion = {
 				menu = {
 					enabled = true,
-					max_width = 100,
 					border = "single",
 					draw = {
 						padding = 2,

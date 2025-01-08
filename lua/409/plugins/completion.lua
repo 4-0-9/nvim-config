@@ -53,6 +53,11 @@ return {
 				default = { "lsp", "path", "buffer" },
 			},
 			completion = {
+				accept = {
+					auto_brackets = {
+						enabled = false,
+					},
+				},
 				menu = {
 					enabled = true,
 					border = "single",

@@ -51,8 +51,6 @@ return {
 			},
 			sources = {
 				default = { "lsp", "path", "buffer" },
-				-- optionally disable cmdline completions
-				-- cmdline = {},
 			},
 			completion = {
 				menu = {
@@ -84,7 +82,10 @@ return {
 					},
 				},
 				list = {
-					selection = "manual",
+					selection = {
+						preselect = true,
+						auto_insert = false,
+					},
 				},
 				ghost_text = {
 					enabled = false,

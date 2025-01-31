@@ -22,7 +22,11 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		event = "VeryLazy",
 		config = function()
-			require("tiny-devicons-auto-colors").setup()
+			local theme_colors = require("dracula").colors()
+
+			require("tiny-devicons-auto-colors").setup({
+				colors = theme_colors,
+			})
 		end,
 	},
 	{

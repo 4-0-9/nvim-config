@@ -148,6 +148,8 @@ return {
 			vim.api.nvim_set_hl(0, "BlinkCmpKindText", { link = "@markup" })
 			vim.api.nvim_set_hl(0, "BlinkCmpKindFile", { link = "TSURI" })
 			vim.api.nvim_set_hl(0, "BlinkCmpKindEnum", { link = "@variable.member" })
+
+			vim.api.nvim_set_hl(0, "SnippetTabstop", { bg = "none" })
 		end,
 	},
 }

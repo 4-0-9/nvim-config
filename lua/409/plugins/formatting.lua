@@ -16,6 +16,7 @@ return {
 					svelteress = { "prettier" },
 					json = { "prettierd" },
 					dart = { "dart_format" },
+					yaml = { "yamlfmt" },
 				},
 			}
 		end,

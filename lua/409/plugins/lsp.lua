@@ -42,7 +42,11 @@ return {
 					})
 				end, { buffer = bufnr, remap = false, nowait = true })
 				vim.keymap.set("n", "gi", function()
-					vim.lsp.buf.implementation()
+					vim.lsp.buf.implementation({
+						on_list = function(list)
+							vim.lsp.util.jump_to_location(list.items[1].user_data, "utf-8", true)
+						end,
+					})
 				end, lsp_opts)
 				vim.keymap.set("n", "K", function()
 					vim.lsp.buf.hover()

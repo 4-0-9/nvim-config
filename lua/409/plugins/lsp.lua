@@ -40,7 +40,7 @@ return {
 							vim.lsp.util.jump_to_location(list.items[1].user_data, "utf-8", true)
 						end,
 					})
-				end, lsp_opts)
+				end, { buffer = bufnr, remap = false, nowait = true })
 				vim.keymap.set("n", "gi", function()
 					vim.lsp.buf.implementation()
 				end, lsp_opts)

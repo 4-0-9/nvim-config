@@ -1,4 +1,4 @@
 # nvim-config
 My personal [Neovim](https://github.com/neovim/neovim) configuration.
 
-Theme: [Dracula](https://github.com/Mofiqul/dracula.nvim)
+Theme: [Catppuccin Mocha](https://github.com/catppuccin/nvim)

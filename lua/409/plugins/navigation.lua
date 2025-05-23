@@ -154,7 +154,7 @@ return {
 			{
 				"<C-b>",
 				function()
-					require("telescope.builtin").buffers()
+					require('fzf-lua').buffers()
 				end,
 				desc = "Find buffers",
 			},

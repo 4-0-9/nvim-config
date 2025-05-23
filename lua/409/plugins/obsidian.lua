@@ -41,11 +41,27 @@ return {
 		ui = {
 			enable = false,
 		},
-		workspaces = {
-			{
-				name = "personal",
-				path = "~/obsidian/409",
-			},
-		},
+		workspaces = (function()
+			local vaults = {}
+
+			local vaults_file_path = vim.fn.stdpath("config") .. "/.obsidian_vaults"
+			local vaults_file = io.open(vaults_file_path, "r")
+
+			if vaults_file == nil then
+				return vaults
+			end
+
+			for line in vaults_file:lines() do
+				for vault_name, vault_path in string.gmatch(line, "%s*(%S+)%s*=%s*(.+)%s*") do
+					vaults[#vaults + 1] = {
+						name = vault_name,
+						path = vault_path,
+					}
+					vim.print(vaults[#vaults])
+				end
+			end
+
+			return vaults
+		end)(),
 	},
 }

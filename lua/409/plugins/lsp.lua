@@ -38,14 +38,14 @@ return {
 				vim.keymap.set("n", "gd", function()
 					vim.lsp.buf.definition({
 						on_list = function(list)
-							vim.lsp.util.jump_to_location(list.items[1].user_data, "utf-8", true)
+							vim.lsp.util.show_document(list.items[1].user_data, "utf-8", { focus = true })
 						end,
 					})
 				end, { buffer = bufnr, remap = false, nowait = true })
 				vim.keymap.set("n", "gi", function()
 					vim.lsp.buf.implementation({
 						on_list = function(list)
-							vim.lsp.util.jump_to_location(list.items[1].user_data, "utf-8", true)
+							vim.lsp.util.show_document(list.items[1].user_data, "utf-8", { focus = true })
 						end,
 					})
 				end, lsp_opts)
@@ -59,10 +59,10 @@ return {
 					vim.diagnostic.open_float()
 				end, lsp_opts)
 				vim.keymap.set("n", "[d", function()
-					vim.diagnostic.goto_next()
+					vim.diagnostic.jump({ count = 1 })
 				end, lsp_opts)
 				vim.keymap.set("n", "]d", function()
-					vim.diagnostic.goto_prev()
+					vim.diagnostic.jump({ count = -1 })
 				end, lsp_opts)
 				vim.keymap.set("n", "<leader>vca", function()
 					vim.lsp.buf.code_action()
@@ -184,7 +184,7 @@ return {
 					if
 						opts.inlay_hints.enabled
 						and client ~= nil
-						and client.supports_method("textDocument/inlayHint")
+						and client.supports_method(client, "textDocument/inlayHint")
 					then
 						vim.lsp.inlay_hint.enable(true)
 					end
@@ -195,7 +195,7 @@ return {
 								pattern = { "*.svelte", "*.js", "*.ts" },
 								group = vim.api.nvim_create_augroup("svelte_ondidchangetsorjsfile", { clear = true }),
 								callback = function(ctx)
-									client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+									client.notify(client, "$/onDidChangeTsOrJsFile", { uri = ctx.match })
 								end,
 							})
 						end
@@ -204,7 +204,7 @@ return {
 							vim.api.nvim_create_autocmd("BufWritePost", {
 								pattern = { "*.svelte", "*.js", "*.ts" },
 								callback = function(ctx)
-									client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+									client.notify(client, "$/onDidChangeTsOrJsFile", { uri = ctx.match })
 								end,
 							})
 						end

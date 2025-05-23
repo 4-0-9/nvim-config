@@ -57,7 +57,6 @@ return {
 						name = vault_name,
 						path = vault_path,
 					}
-					vim.print(vaults[#vaults])
 				end
 			end
 

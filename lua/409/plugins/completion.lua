@@ -72,9 +72,14 @@ return {
 					border = "single",
 					draw = {
 						padding = 2,
-						columns = { { "kind_icon" }, { "label" }, { "kind" } },
-
+						columns = { { "kind_icon" }, { "label" }, { "label_description" }, { "kind" } },
 						components = {
+							label_description = {
+								width = { max = 50 },
+								text = function(ctx)
+									return ctx.label_detail
+								end,
+							},
 							kind = {
 								text = function(ctx)
 									return "(" .. ctx.kind .. ")"

@@ -15,7 +15,7 @@ return {
 			no_italic = true,
 			no_underline = false,
 			highlight_overrides = {
-				mocha = function (mocha)
+				mocha = function(mocha)
 					return {
 						Comment = { fg = mocha.overlay0 },
 					}
@@ -82,6 +82,8 @@ return {
 			vim.api.nvim_set_hl(0, "BlinkCmpKindText", { link = "@markup" })
 			vim.api.nvim_set_hl(0, "BlinkCmpKindFile", { link = "TSURI" })
 			vim.api.nvim_set_hl(0, "BlinkCmpKindEnum", { link = "@variable.member" })
+
+			vim.api.nvim_set_hl(0, "BlinkCmpLabelDescription", { link = "Comment" })
 
 			vim.api.nvim_set_hl(0, "SnippetTabstop", { bg = "none" })
 		end,

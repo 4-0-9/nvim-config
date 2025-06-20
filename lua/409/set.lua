@@ -40,6 +40,8 @@ vim.opt.concealcursor = "n"
 vim.opt.conceallevel = 0
 vim.g.lsp_zero_ui_float_border = "single"
 
+vim.opt.fillchars = "eob: "
+
 vim.filetype.add({
 	pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
 })

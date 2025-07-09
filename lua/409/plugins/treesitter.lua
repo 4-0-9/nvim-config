@@ -2,6 +2,7 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		dependencies = {
+			"neovim/nvim-lspconfig",
 			"nvim-treesitter/nvim-tree-docs",
 			"JoosepAlviste/nvim-ts-context-commentstring",
 		},

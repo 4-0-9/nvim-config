@@ -122,7 +122,12 @@ return {
 		},
 		opts_extend = { "sources.default" },
 		config = function(_, opts)
-			require("blink.cmp").setup(opts)
+			local blink = require("blink.cmp")
+
+			blink.setup(opts)
+
+			local capabilities = blink.get_lsp_capabilities()
+			vim.lsp.config("*", { capabilities = capabilities })
 		end,
 	},
 }

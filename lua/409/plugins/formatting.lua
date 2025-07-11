@@ -13,6 +13,7 @@ return {
 					typescriptreact = { "prettierd" },
 					css = { "prettierd" },
 					svelte = { "prettier" },
+					vue = { "prettier" },
 					svelteress = { "prettier" },
 					json = { "prettierd" },
 					dart = { "dart_format" },

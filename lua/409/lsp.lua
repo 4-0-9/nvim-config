@@ -185,4 +185,13 @@ vim.lsp.config.svelte = {
 			didChangeWatchedFiles = { dynamicRegistration = true },
 		},
 	},
+	on_attach = function(client)
+		vim.api.nvim_create_autocmd("BufWritePost", {
+			pattern = { "*.svelte", "*.js", "*.ts" },
+			group = vim.api.nvim_create_augroup("svelte_ondidchangetsorjsfile", { clear = true }),
+			callback = function(ctx)
+				client.notify(client, "$/onDidChangeTsOrJsFile", { uri = ctx.match })
+			end,
+		})
+	end
 }
